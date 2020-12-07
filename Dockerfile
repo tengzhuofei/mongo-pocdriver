@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 RUN mvn clean package
 
 
-FROM openjdk:7-jre
+FROM openjdk:8-jre
 COPY --from=build_img /usr/src/app/bin /javabin
 WORKDIR /javabin
 ENTRYPOINT [ "java", "-jar", "/javabin/POCDriver.jar" ]
